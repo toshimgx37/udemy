@@ -6,7 +6,8 @@ import fontAwsome from "../../assets/fonts/fa-solid-900.ttf";
 
 const CustomIcon = createIconSet({
   pencil: '\uf303',
-  plus: '\uf067'
+  plus: '\uf067',
+  check: '\uf00c',
 }, 'FontAwsome');
 
 
