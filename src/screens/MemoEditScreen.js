@@ -3,6 +3,16 @@ import {StyleSheet, View, TextInput} from "react-native";
 import CircleButton from "../elements/CircleButton";
 
 class MemoEditScreen extends React.Component {
+  static navigationOptions = {
+    title: "Memot",
+    headerStyle: {
+      backgroundColor: "#265366",
+    },
+    headerTitleStyle: {
+      color: "#fff",
+    },
+
+  };
   render() {
     return(
       <View style={styles.container}>
