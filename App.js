@@ -3,6 +3,8 @@ import { StyleSheet, View } from 'react-native';
 import Appbar from "./src/components/Appbar";
 import SignupScreen from "./src/screens/SignupScreen";
 
+// test
+
 export default class App extends React.Component {
   render() {
     return (
