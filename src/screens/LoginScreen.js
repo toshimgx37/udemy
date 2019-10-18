@@ -21,9 +21,14 @@ class LoginScreen extends React.Component {
     password: "",
   }
 
-  handleSubmit() {
-    //Login処理をかく
-
+  handleSubmit = () => {
+    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then((user) => {
+        this.props.navigation.navigate("Home");
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
   }
 
   render() {
@@ -35,7 +40,7 @@ class LoginScreen extends React.Component {
           <TextInput
             style={styles.input}
             value={this.state.email}
-            onChange={(text) => {this.setState({email: text}); }}
+            onChangeText={(text) => {this.setState({email: text}); }}
             autoCapitalize="none"
             autoCorrect={false}
             placeholder="Email Adrress"
@@ -43,13 +48,13 @@ class LoginScreen extends React.Component {
           <TextInput
             style={styles.input}
             value={this.state.password}
-            onChange={(text) => {this.setState({password: text}); }}
+            onChangeText={(text) => {this.setState({password: text}); }}
             autoCapitalize="none"
             autoCorrect={false}
             placeholder="Password"
             secureTextEntry
           />
-          <TouchableHighlight style={styles.button} onPress={this.handleSubmit.bind(this)} >
+          <TouchableHighlight style={styles.button} onPress={() => this.handleSubmit()} >
             <Text style={styles.buttonTitle}>Login</Text>
           </TouchableHighlight>
       </View>
