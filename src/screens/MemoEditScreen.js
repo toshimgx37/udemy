@@ -8,6 +8,8 @@ class MemoEditScreen extends React.Component {
     headerStyle: {
       backgroundColor: "#265366",
     },
+    headerTintColor: "#fff",
+    headerBackTitle: null,
     headerTitleStyle: {
       color: "#fff",
     },
@@ -17,7 +19,7 @@ class MemoEditScreen extends React.Component {
     return(
       <View style={styles.container}>
         <TextInput style={styles.memoEditInput} multiline value="Hi" />
-        <CircleButton name="check" />
+        <CircleButton name="check" onPress={() => {this.props.navigation.goBack("")}} />
       </View>
     );
   }

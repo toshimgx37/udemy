@@ -8,6 +8,8 @@ class MemoDetailScreen extends React.Component {
     headerStyle: {
       backgroundColor: "#265366",
     },
+    headerTintColor: "#fff",
+    headerBackTitle: null,
     headerTitleStyle: {
       color: "#fff",
     },

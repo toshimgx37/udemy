@@ -1,16 +1,55 @@
 import React from "react";
 import {StyleSheet, View, Text, TextInput, TouchableHighlight } from "react-native";
+import firebase from "firebase";
 
 class LoginScreen extends React.Component {
+  static navigationOptions = {
+    title: "Memot",
+    headerStyle: {
+      backgroundColor: "#265366",
+    },
+    headerTintColor: "#fff",
+    headerBackTitle: null,
+    headerTitleStyle: {
+      color: "#fff",
+    },
+
+  };
+
+  state = {
+    email: "",
+    password: "",
+  }
+
+  handleSubmit() {
+    //Login処理をかく
+
+  }
+
   render() {
     return(
       <View style={styles.container}>
         <Text style={styles.title}>
           Login
         </Text>
-          <TextInput style={styles.input} value="Email Address" />
-          <TextInput style={styles.input} value="Password" />
-          <TouchableHighlight style={styles.button} onPress={() => {}} underlayColor="#C70F66"underlayColor="#C70F66" >
+          <TextInput
+            style={styles.input}
+            value={this.state.email}
+            onChange={(text) => {this.setState({email: text}); }}
+            autoCapitalize="none"
+            autoCorrect={false}
+            placeholder="Email Adrress"
+          />
+          <TextInput
+            style={styles.input}
+            value={this.state.password}
+            onChange={(text) => {this.setState({password: text}); }}
+            autoCapitalize="none"
+            autoCorrect={false}
+            placeholder="Password"
+            secureTextEntry
+          />
+          <TouchableHighlight style={styles.button} onPress={this.handleSubmit.bind(this)} >
             <Text style={styles.buttonTitle}>Login</Text>
           </TouchableHighlight>
       </View>
