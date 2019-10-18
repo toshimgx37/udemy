@@ -31,6 +31,26 @@ const MainNavigator = createStackNavigator({
   MemoDetail: {screen: MemoDetailScreen},
   MemoEdit: {screen: MemoEditScreen},
 
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Appbar />
+        <SignupScreen />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FFFDF6',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 78,
+  },
 });
 
 const App = createAppContainer(MainNavigator);
