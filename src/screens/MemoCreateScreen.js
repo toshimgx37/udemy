@@ -23,13 +23,11 @@ class MemoCreateScreen extends React.Component {
   }
 
   handleSave() {
-    const {params} = this.props.navigation.state;
-    let user = firebase.auth().currentUser;
-    console.log(user.uid);
     const db = firebase.firestore();
-    db.collection(`users/${user.uid}/memos`).add({
+    const {currentUser} = firebase.auth();
+    db.collection(`users/${currentUser.uid}/memos`).add({
       body: this.state.body,
-      createdOn: new Date(),
+      createdOn: "2019-10-21",
     })
     .then((docRef) => {
       console.log(docRef.id);
@@ -45,7 +43,7 @@ class MemoCreateScreen extends React.Component {
         <TextInput
           style={styles.memoEditInput}
           onChangeText={(text) => {this.setState({body: text}); }}
-          multiline value={this.state.body} />
+          value={this.state.body} />
         <CircleButton name="check" onPress={this.handleSave.bind(this)} />
       </View>
     );
