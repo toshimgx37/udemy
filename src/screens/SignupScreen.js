@@ -3,13 +3,24 @@ import {StyleSheet, View, Text, TextInput, TouchableHighlight } from "react-nati
 import firebase from "firebase";
 
 class SignupScreen extends React.Component {
+    static navigationOptions = {
+      title: "Memot",
+      headerStyle: {
+        backgroundColor: "#265366",
+      },
+      headerTintColor: "#fff",
+      headerBackTitle: null,
+      headerTitleStyle: {
+        color: "#fff",
+      },
+    };
 
-  state = {
-    email: "",
-    password: "",
-  }
+    state = {
+      email: "",
+      password: "",
+    }
 
-  handleSubmit() {
+    handleSubmit() {
     // Signupの処理をかく
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then((user) => {
@@ -20,19 +31,6 @@ class SignupScreen extends React.Component {
         console.log("error", error);
       });
   }
-
-  static navigationOptions = {
-    title: "Memot",
-    headerStyle: {
-      backgroundColor: "#265366",
-    },
-    headerTintColor: "#fff",
-    headerBackTitle: null,
-    headerTitleStyle: {
-      color: "#fff",
-    },
-
-  };
 
   render() {
     return(
