@@ -27,7 +27,7 @@ class MemoListScreen extends React.Component {
           const memoList = [];
           //データベースから、メモリストにあるメモを一つずつ表示する
           snapshot.forEach((doc) => {
-            memoList.push(doc.data());
+            memoList.push({...doc.data(), key: doc.id});
           })
           //メモデータを表示する
           this.setState({memoList});
