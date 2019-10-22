@@ -4,9 +4,9 @@ import {StyleSheet, View, Text, TouchableHighlight, FlatList} from "react-native
 class MemoList extends React.Component {
   renderMemo({item}) {
     return (
-      <TouchableHighlight onPress={() => {this.props.navigation.navigate("MemoDetail")}}>
+      <TouchableHighlight onPress={() => {this.props.navigation.navigate("MemoDetail", {memo: item})}}>
         <View style={styles.memoListItem}>
-          <Text style={styles.memoTitle}>{item.body}</Text>
+          <Text style={styles.memoTitle}>{item.body.substring(0,10)}</Text>
           <Text style={styles.memoDate}>2019/10/08</Text>
         </View>
       </TouchableHighlight>

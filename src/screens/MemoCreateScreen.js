@@ -27,7 +27,7 @@ class MemoCreateScreen extends React.Component {
     const {currentUser} = firebase.auth();
     db.collection(`users/${currentUser.uid}/memos`).add({
       body: this.state.body,
-      createdOn: "2019-10-21",
+      createdOn: new Date(),
     })
     .then((docRef) => {
       console.log(docRef.id);
