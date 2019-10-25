@@ -19,23 +19,14 @@ class MemoListScreen extends React.Component {
      const {currentUser} = firebase.auth();
      const db = firebase.firestore()
      db.collection(`users/${currentUser.uid}/memos`)
-     //上のコレクションを参照し、データを取得する
-        .get()
-     //成功した時の処理
-        .then((snapshot) => {
-          //メモリストの値を表示する箱を用意する
+        .onSnapshot((snapshot) => {
           const memoList = [];
           //データベースから、メモリストにあるメモを一つずつ表示する
-          snapshot.forEach((doc) => {
+            snapshot.forEach((doc) => {
             memoList.push({...doc.data(), key: doc.id});
-          })
-          //メモデータを表示する
+          });
           this.setState({memoList});
-        })
-     //ダメだった時に処理
-        .catch((error) => {
-          console.log(error);
-        });
+      });
     }
 
   static navigationOptions = {
